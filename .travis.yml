@@ -1,0 +1,15 @@
+language: haskell
+ghc: 
+ - 6.10.4
+ - 6.10.1
+ - 7.10.3
+ - 7.8
+
+before_install:
+ - cd lslforge/haskell
+
+install:
+ - runhaskell Setup.hs configure
+
+script:
+ - runhaskell Setup.hs build
