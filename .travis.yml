@@ -1,8 +1,9 @@
 language: haskell
 ghc: 
  - 6.10.4
- - 6.10.1
- - 7.10.3
+# - 6.10.1
+# - 7.10.3
+# commenting out as those are not available
  - 7.8
 
 before_install:
@@ -12,7 +13,12 @@ install:
  # use cabal with list of packages from https://github.com/RayZopf/LSLForge_patched#how-to-build-lslforge-executable-yourself
  # more comments at https://code.google.com/p/lslforge/issues/detail?id=40#c7
  - cabal update
- - cabal install Cabal-1.6.0.3 HTTP-3001.1.5 HUnit-1.2.0.3 HaXml-1.19.7 QuickCheck-1.2.0.0 Win32-2.2.0.0 array-0.2.0.0 base-3.0.3.1 base-4.1.0.0 binary-0.4.5 binary-0.5.0.2 bytestring-0.9.1.4 cereal-0.4.0.1 containers-0.2.0.1 directory-1.0.0.3 dph-base-0.3 dph-par-0.3 dph-prim-interface-0.3 dph-prim-par-0.3 dph-prim-seq-0.3 dph-seq-0.3 extensible-exceptions-0.1.1.0 fclabels-0.4.2.1 filepath-1.1.0.2 ghc-6.10.4 ghc-prim-0.1.0.0 haddock-2.4.2 haskell-src-1.0.1.3 haskell98-1.0.1.0 hpc-0.5.0.3 html-1.0.1.2 integer-0.1.0.1 json-0.7 monads-fd-0.0.0.1 mtl-1.1.0.2 network-2.2.1.2 old-locale-1.0.0.1 old-time-1.0.0.2 packedstring-0.1.0.1 parallel-1.1.0.1 parsec-2.1.0.1 polyparse-1.2 pretty-1.0.1.0 process-1.0.1.1 pureMD5-0.2.4 pureMD5-1.1.0.0 random-1.0.0.1 regex-base-0.72.0.2 regex-compat-0.71.0.1 regex-posix-0.72.0.3 rts-1.0 stm-2.1.1.2 syb-0.1.0.1 template-haskell-2.3.0.1 text-0.5 time-1.1.4 transformers-0.1.4.0 utf8-string-0.3.7 xhtml-3000.2.0.1 zlib-0.4.0.4
+ - cabal install Cabal-1.6.0.3 HTTP-3001.1.5 HUnit-1.2.0.3 HaXml-1.19.7 QuickCheck-1.2.0.0 Win32-2.2.0.0 array-0.2.0.0 base-3.0.3.1 base-4.1.0.0 binary-0.4.5 binary-0.5.0.2 bytestring-0.9.1.4 cereal-0.4.0.1 containers-0.2.0.1 directory-1.0.0.3 dph-base-0.3 dph-par-0.3 dph-prim-interface-0.3 dph-prim-par-0.3 dph-prim-seq-0.3 dph-seq-0.3 extensible-exceptions-0.1.1.0 fclabels-0.4.2.1 filepath-1.1.0.2 ghc-prim-0.1.0.0 haddock-2.4.2 haskell-src-1.0.1.3 haskell98-1.0.1.0 hpc-0.5.0.3 html-1.0.1.2 json-0.7 monads-fd-0.0.0.1 mtl-1.1.0.2 network-2.2.1.2 old-locale-1.0.0.1 old-time-1.0.0.2 packedstring-0.1.0.1 parallel-1.1.0.1 parsec-2.1.0.1 polyparse-1.2 pretty-1.0.1.0 process-1.0.1.1 pureMD5-0.2.4 pureMD5-1.1.0.0 random-1.0.0.1 regex-base-0.72.0.2 regex-compat-0.71.0.1 regex-posix-0.72.0.3 stm-2.1.1.2 syb-0.1.0.1 template-haskell-2.3.0.1 text-0.5 time-1.1.4 transformers-0.1.4.0 utf8-string-0.3.7 xhtml-3000.2.0.1 zlib-0.4.0.4
+# - cabal install ghc-6.10.4
+# - cabal install integer-0.1.0.1
+# - cabal install rts-1.0
+# moving out broken/not available packages
+ - cabal install --only-dependencies --enable-tests
  - runhaskell Setup.hs configure
 
 script:
